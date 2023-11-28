@@ -11,8 +11,8 @@ namespace LostnFound.Models
         public DateTime DateLost { get; set; }
         public string LocationLost { get; set; }
         public bool IsClaimed { get; set; }
-        public int FinderId { get; set; }
-        public DateTime DateFound { get; set; }
+        public int? FinderId { get; set; }
+        public DateTime? DateFound { get; set; }
         public string LocationFound { get; set; }
         public string FinderContact { get; set; }
     }
