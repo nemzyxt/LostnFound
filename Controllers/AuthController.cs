@@ -30,7 +30,7 @@ public class AuthController : Controller
             if (user != null)
             {
                 HttpContext.Session.SetInt32("UserId", user.UserId);
-                return RedirectToAction("BookList", "Book");
+                return RedirectToAction("AllItems", "LostItem");
             }
             else
             {
