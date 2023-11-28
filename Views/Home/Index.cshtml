@@ -3,6 +3,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 text-primary mb-5 mt-5">LostnFound</h1>
+    <h3>Lost and found made simple: manage, report, connect</h3>
+    <hr />
+    <div class='mt-5'>
+        <a href="@Url.Action("Login", "Auth")" class='btn-primary p-3 m-3 rounded'>Log in</a>
+        <span>or</span>
+        <a href="@Url.Action("Signup", "Auth")" class='btn-success p-3 m-3 rounded'>Sign up</a>
+    </div>
 </div>
