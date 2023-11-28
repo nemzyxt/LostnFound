@@ -14,6 +14,7 @@ namespace LostnFound.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AuthModel>().HasKey(e => e.UserId);
+            modelBuilder.Entity<LostItemModel>().HasKey(e => e.ItemId);
 
             base.OnModelCreating(modelBuilder);
         }
