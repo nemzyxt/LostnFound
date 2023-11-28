@@ -22,4 +22,6 @@ public class LostItemService
         // Fetch all items where OwnerId is the same as the provided userId
         return _context.LostItems.Where(item => item.OwnerId == userId).ToList();
     }
+
+    
 }
