@@ -10,6 +10,7 @@ namespace LostnFound.Models
 
         // DbSet properties represent database tables
         public DbSet<AuthModel> Auth { get; set; }
+        public DbSet<LostItemModel> LostItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
