@@ -51,6 +51,29 @@ public class LostItemController : Controller
         return RedirectToAction("MyItems", "LostItem");
     }
 
+    public ActionResult ClaimItem()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult ClaimItem(ClaimItemViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Retrieve the user id from SessionStorage
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if(!userId.HasValue)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+        }
+
+        return RedirectToAction("AllItems", "LostItem");
+    }
+
     // Action to return the list of books
     public IActionResult AllItems()
     {
