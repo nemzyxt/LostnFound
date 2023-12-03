@@ -4,6 +4,7 @@ Report lost items and potentially get in touch with someone that found it
 
 ## Screenshots
 
+![landing](scrshots/pic0.png)
 ![login](scrshots/pic1.png)
 ![all_items](scrshots/pic2.png)
 ![my_items](scrshots/pic3.png)
