@@ -2,14 +2,53 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using LostnFound.Models;
+using LostnFound.ViewModels;
 
 public class LostItemController : Controller
 {
+    private readonly LostnFoundContext _dbContext;
     private readonly LostItemService _lostItemService;
 
-    public LostItemController(LostItemService lostItemService)
+    public LostItemController(LostItemService lostItemService, LostnFoundContext dbContext)
     {
         _lostItemService = lostItemService;
+        _dbContext = dbContext;
+    }
+
+    public ActionResult AddItem()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AddItem(AddItemViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Retrieve the user id from SessionStorage
+            var userId = HttpContext.Session.GetInt32("UserId");
+
+            if(!userId.HasValue)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            // Create a new lost item
+            var newItem = new LostItemModel
+            {
+                ItemName = model.ItemName,
+                ItemDescription = model.ItemDescription,
+                DateLost = model.DateLost,
+                LocationLost = model.LocationLost,
+                OwnerId = userId.Value,
+            };
+
+            // Save the new user to the database
+            _dbContext.LostItems.Add(newItem);
+            _dbContext.SaveChanges();
+        }
+
+        return RedirectToAction("MyItems", "LostItem");
     }
 
     // Action to return the list of books

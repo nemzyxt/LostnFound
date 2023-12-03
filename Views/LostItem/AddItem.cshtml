@@ -1,0 +1,42 @@
+@model LostnFound.ViewModels.AddItemViewModel
+
+@{
+    ViewData["Title"] = "Add Lost Item";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="display-5 text-primary text-center mb-4">Add Lost Item</h2>
+                    <form asp-action="AddItem" method="post">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="mb-3">
+                            <label asp-for="ItemName" class="form-label">Item Name</label>
+                            <input asp-for="ItemName" class="form-control" placeholder="Enter the item name">
+                            <span asp-validation-for="ItemName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ItemDescription" class="form-label">Item Description</label>
+                            <textarea asp-for="ItemDescription" class="form-control" placeholder="Enter the item description"></textarea>
+                            <span asp-validation-for="ItemDescription" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="DateLost" class="form-label">Date Lost</label>
+                            <input asp-for="DateLost" type="date" class="form-control">
+                            <span asp-validation-for="DateLost" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="LocationLost" class="form-label">Location Lost</label>
+                            <input asp-for="LocationLost" class="form-control" placeholder="Enter the location lost">
+                            <span asp-validation-for="LocationLost" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Add Lost Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
