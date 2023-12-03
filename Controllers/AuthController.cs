@@ -87,6 +87,6 @@ public class AuthController : Controller
     public ActionResult Signout()
     {
         HttpContext.Session.Clear();
-        return RedirectToAction("Auth", "Login");
+        return RedirectToAction("Login", "Auth");
     }
 }
