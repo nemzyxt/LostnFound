@@ -2,6 +2,13 @@
 
 Report lost items and potentially get in touch with someone that found it
 
+## Screenshots
+
+![login](scrshots/pic1.png)
+![all_items](scrshots/pic2.png)
+![my_items](scrshots/pic3.png)
+![my_items](scrshots/pic4.png)
+
 ## Requirements
 
 - A Code editor or IDE
